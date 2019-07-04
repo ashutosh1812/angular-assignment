@@ -1,0 +1,28 @@
+<div class="container-fluid">
+
+  <h1> Welcome To Engineer.Ai Assignement App</h1>
+
+  <form>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+            <input type="text" class="form-control" name="titleSearch" placeholder="Type to search by title..." [(ngModel)]="titleSearch">
+        </div>
+    </div>
+  </form>
+
+<table class="table-bordered table-hover">
+  <tr>
+      <th>Title</th>
+      <th>URL</th>
+      <th>Created at</th>
+      <th>Author</th>
+  </tr>
+  <tr *ngFor="let row of serviceRes | filter : 'title' : titleSearch; let i = index" (click)="openModel(row)">
+      <td class="text-left">{{row.title}}</td>
+      <td class="text-left">{{row.url}}</td>
+      <td class="text-left">{{row.created_at | date:'medium'}}</td>
+      <td class="text-left">{{row.author}}</td>
+  </tr>
+</table>
+</div>
